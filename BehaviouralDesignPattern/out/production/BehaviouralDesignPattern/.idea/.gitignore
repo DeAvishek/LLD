@@ -3,3 +3,6 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+BehaviouralDesignPattern/.idea/
+BehaviouralDesignPattern/BehaviouralDesignPattern.iml
+BehaviouralDesignPattern/out/
