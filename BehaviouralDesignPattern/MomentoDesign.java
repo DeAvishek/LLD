@@ -39,9 +39,11 @@ class Originator{
         //when some text is written i want to save the memento
         history.saveHistory(new Memento(text));
     }
-    public String getText(EditorHistory history){
-        Memento m =  history.getHistory();
-        return m.getText();
+    public String getText(){
+        return text;
+    }
+    public void restore(Memento history){
+        this.text = history.getText();
     }
 }
 public class MomentoDesign {
