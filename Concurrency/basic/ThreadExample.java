@@ -20,6 +20,8 @@ public class ThreadExample {
         MyThread t1 = new MyThread();
         MyThread t2 = new MyThread();
         t1.start();
-        t2.start();
+        t1.run(); //this is the main thread
     }
 }
+
+//and we can't call same threde object twice to start because--> one execution cycle after finish the thread terminates
