@@ -12,7 +12,6 @@ public  class ThreadChief extends Thread{
             try{
                 Thread.sleep(8000);
                 System.out.println("Chef: Food is ready! Notifying the waiter. 🔔"+LocalDateTime.now());
-                lock.notify();
             }catch (InterruptedException e){
                 Thread.currentThread().interrupt();
             }

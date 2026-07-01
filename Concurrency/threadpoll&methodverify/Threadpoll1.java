@@ -1,5 +1,7 @@
+//cpu-intesive task newFixedThreadPoll(cores/thread)
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 class WorkerThread implements Runnable{
     private final int taskId;
@@ -11,7 +13,7 @@ class WorkerThread implements Runnable{
     public void run(){
         try {
             System.out.println(Thread.currentThread().getName()+" is procession task.. "+taskId);
-            Thread.sleep(3000);
+            Thread.sleep(9000);
             System.out.println(Thread.currentThread().getName()+" is finsished task.. "+taskId);
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
@@ -26,5 +28,16 @@ public class Threadpoll1 {
         }
 
         executer.shutdown();
+        System.out.println("Thread Pool Shutdown Initiated 🚦"); 
+        try {
+            if(!executer.awaitTermination(10, TimeUnit.SECONDS)){ //wait for 10 sec after that forcefully terminate
+                executer.shutdownNow();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println(e.getMessage());
+            executer.shutdownNow();
+        }
+        System.out.println("All Threads Terminated ✅"); 
     }
 }
